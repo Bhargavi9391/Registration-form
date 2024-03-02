@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: bold;
+        background-color:gainsboro;
+
+    }
+    .error {
+        color: red;
+    }
+    label {
+        color:black;
+        size:20%;
+        display: inline-block;
+        font-style:bold;
+        font-size:17px;
+    }
+   button{
+    font-style: italic;
+    background-color: aqua;
+    color:black;
+    width:5%;
+    cursor: pointer;
+
+   }
+   h2{
+    color:red;
+
+    font-size:30px;
+    text-decoration: solid;
+    text-decoration: underline;
+   }
+    
+</style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <div>
+            <label for="name">Enter Name:</label>
+            <input type="text" id="name" name="name">
+            <span class="error" id="nameError"></span>
+        </div>
+        <div>
+            <label for="email"> Enter Email:</label>
+            <input type="email" id="email" name="Email">
+            <span class="error" id="emailError"></span>
+        </div>
+        <div>
+            <label for="mobile"> Enter Mobile No:</label>
+            <input type="text" id="mobile" name="mobile">
+            <span class="error" id="mobileError"></span>
+        </div>
+        <div>
+            <label for="address"> Enter Address:</label>
+            <textarea id="address" name="address"></textarea>
+            <span class="error" id="addressError"></span>
+        </div>
+        <div>
+            <label for="pincode"> Enter Pincode:</label>
+            <input type="text" id="pincode" name="pincode">
+            <span class="error" id="pincodeError"></span>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const address = document.getElementById('address').value;
+            const pincode = document.getElementById('pincode').value;
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const mobileError = document.getElementById('mobileError');
+            const addressError = document.getElementById('addressError');
+            const pincodeError = document.getElementById('pincodeError');
+
+            nameError.textContent = "";
+            emailError.textContent = "";
+            mobileError.textContent = "";
+            addressError.textContent = "";
+            pincodeError.textContent = "";
+
+            let isValid = true;
+
+            if (name === "") {
+                nameError.textContent = "Name is required";
+                isValid = false;
+            }
+            if (email === "") {
+                emailError.textContent = "Email is required";
+                isValid = false;
+            }
+            if (mobile === "") {
+                mobileError.textContent = "Mobile No is required";
+                isValid = false;
+            }
+            if (address === "") {
+                addressError.textContent = "Address is required";
+                isValid = false;
+            }
+            if (pincode === "") {
+                pincodeError.textContent = "Pincode is required";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
